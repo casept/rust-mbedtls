@@ -17,6 +17,7 @@ impl super::BuildConfig {
             r#"-DMBEDTLS_CONFIG_FILE="<{}>""#,
             self.config_h.to_str().expect("config.h UTF-8 error")
         ))
+        .cflag("-Os")
         .define("ENABLE_PROGRAMS", "OFF")
         .define("ENABLE_TESTING", "OFF")
         .build_target("lib");
